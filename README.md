@@ -1,7 +1,7 @@
 # Code Challange
 
-The purpose of the app is to show how to encrypt messages then sent to server and saved in mongodb.
-Passport used to authenticate users
+* The purpose of the app is to show how to encrypt messages then sent to server and saved in mongodb.
+* Passport used to authenticate users
 
 
 ## Instructions
