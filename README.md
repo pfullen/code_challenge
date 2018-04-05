@@ -13,3 +13,8 @@ Passport used to authenticate users
 5. Launch: `node server.js`
 6. Visit in your browser at: `http://localhost:8080`
 
+
+## TO Do 
+  * clean up and remove comments
+	* refactor code to use monogoose schema
+	* need to add the ability to retreive messages back from server and decrypt the message.
