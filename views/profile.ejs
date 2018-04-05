@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+<head>
+    <title>Code Challenge</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <style>
+        body         { padding-top:80px; word-wrap:break-word; }
+    </style>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+    </script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/core.js"> </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/hmac.js"> </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/md5.js"> </script>
+<!-- To Do Move the below script to separate file -->
+    <script>
+$(document).ready(function() {
+      console.log("Doc has loaded");
+
+      $("form").submit(function(e) {
+        e.preventDefault();
+        console.log("I have been clicked")
+
+        var message = $('#message').val();
+        var passCode = $('#pass-phrase').val();
+        console.log(passCode);
+        console.log(message);
+        var hash = CryptoJS.HmacMD5(message, passCode);
+        var words = hash.words
+        
+        console.log(hash);
+
+        $.ajax({
+            type: "POST",
+            url: "http://localhost:8080/message",
+            data: JSON.stringify(words),
+            success: function(res) {
+                // alert for sucess
+                if(res.status == 200) {
+                alert('The message was sucessful sent to server');
+                location.reload();
+                }
+            }
+        })
+      })
+
+     
+
+});
+       </script> 
+
+
+</head>
+<body>
+<div class="container">
+
+    
+
+    <div class="row">
+
+        <!-- LOCAL INFORMATION -->
+        <div class="col-sm-6">
+            <div class="well">
+                <h3> Store an Encypted Message on the Server </h3>
+              <form id="message-form"  name="message-form">
+                    <div class="form-group" id="message-form">
+                    <label>Enter Pass Phrase </label> 
+                     <input type="text" class="form-control" id="pass-phrase" name="pass-phrase">
+                     <label> Enter your Message to encrypt   </label>
+                     <input type="text" class="form-control" id="message" name="message">
+                    </div>
+        
+
+                    <button type="submit" class="btn btn-primary btn-lg">Send</>
+    </form>
+
+            </div>
+        </div>
+
+        
+
+</div>
+</body>
+</html>
