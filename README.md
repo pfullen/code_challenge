@@ -1,12 +1,12 @@
 # Code Challange
 
-
+The purpose of the app is to show how to encrypt messages then sent to server and saved in mongodb.
 Passport used to authenticate users
 
 
 ## Instructions
 
-1. Clone the repo: `git clone git@github.com:scotch-io/easy-node-authentication`
+1. Clone the repo: 
 2. Install packages: `npm install`
 3. Change out the database configuration in config/database.js
 4. Change out auth keys in config/auth.js
